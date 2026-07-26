@@ -1,0 +1,6 @@
+{
+  "name": "Agra Helpline 24×7",
+  "description": "Premium Healthcare Platform, Telemedicine & Doctor Appointment Booking Portal for Dr. Mohit Gupta and Agra Helpline 24×7.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
