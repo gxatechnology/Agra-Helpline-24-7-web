@@ -5,8 +5,8 @@ import { createServer as createViteServer } from 'vite';
 import { GoogleGenAI } from '@google/genai';
 import { initialDoctorProfile } from './src/data/initialData.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __filenameSafe = typeof __filename !== 'undefined' ? __filename : (typeof import.meta !== 'undefined' && import.meta?.url ? fileURLToPath(import.meta.url) : '');
+const __dirnameSafe = typeof __dirname !== 'undefined' ? __dirname : (__filenameSafe ? path.dirname(__filenameSafe) : process.cwd());
 
 let currentDoctorProfile = { ...initialDoctorProfile };
 let appointmentsStore: any[] = [];

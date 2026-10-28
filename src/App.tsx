@@ -15,6 +15,8 @@ import { NotFoundSection } from './components/NotFoundSection';
 import { AppointmentModal } from './components/AppointmentModal';
 import { Footer } from './components/Footer';
 import { MobileBottomBar } from './components/MobileBottomBar';
+import { NewsEventsSection } from './components/NewsEventsSection';
+import { CommunityHighlightsSection } from './components/CommunityHighlightsSection';
 import { DoctorProfile, Appointment } from './types';
 import { initialDoctorProfile } from './data/initialData';
 
@@ -38,6 +40,10 @@ const pathToTabMap: Record<string, string> = {
   '/terms': 'terms',
   '/ai-triage': 'ai-triage',
   '/patient-portal': 'patient-portal',
+  '/news-events': 'news-events',
+  '/news': 'news-events',
+  '/news-events/rotary-club-agra-greater-15th-installation-2026': 'rotary-15th-article',
+  '/news/rotary-club-agra-greater-15th-installation-2026': 'rotary-15th-article',
 };
 
 const tabToPathMap: Record<string, string> = {
@@ -47,6 +53,8 @@ const tabToPathMap: Record<string, string> = {
   'doctors': '/doctors',
   'telemedicine': '/telemedicine',
   'gallery': '/gallery',
+  'news-events': '/news-events',
+  'rotary-15th-article': '/news-events/rotary-club-agra-greater-15th-installation-2026',
   'contact': '/contact',
   'faq': '/faqs',
   'emergency': '/emergency',
@@ -148,6 +156,10 @@ export default function App() {
               doctorProfile={doctorProfile}
               onUpdateDoctorProfile={handleUpdateDoctorProfile}
               onOpenAppointmentModal={() => setIsAppointmentModalOpen(true)}
+              setActiveTab={handleSetActiveTab}
+            />
+            <CommunityHighlightsSection
+              setActiveTab={handleSetActiveTab}
             />
           </>
         )}
@@ -165,6 +177,7 @@ export default function App() {
             doctorProfile={doctorProfile}
             onUpdateDoctorProfile={handleUpdateDoctorProfile}
             onOpenAppointmentModal={() => setIsAppointmentModalOpen(true)}
+            setActiveTab={handleSetActiveTab}
           />
         )}
 
@@ -183,7 +196,21 @@ export default function App() {
         )}
 
         {activeTab === 'gallery' && (
-          <GallerySection />
+          <GallerySection setActiveTab={handleSetActiveTab} />
+        )}
+
+        {(activeTab === 'news-events' || activeTab === 'rotary-15th-article') && (
+          <NewsEventsSection
+            viewArticleSlug={activeTab === 'rotary-15th-article' ? 'rotary-club-agra-greater-15th-installation-2026' : null}
+            onSelectArticle={(slug) => {
+              if (slug === 'rotary-club-agra-greater-15th-installation-2026') {
+                handleSetActiveTab('rotary-15th-article');
+              }
+            }}
+            onBackToListing={() => handleSetActiveTab('news-events')}
+            setActiveTab={handleSetActiveTab}
+            onOpenAppointmentModal={() => setIsAppointmentModalOpen(true)}
+          />
         )}
 
         {activeTab === 'ai-triage' && (

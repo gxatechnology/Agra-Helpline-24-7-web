@@ -122,6 +122,11 @@ export const Footer: React.FC<FooterProps> = ({ doctorProfile, setActiveTab }) =
                 </button>
               </li>
               <li>
+                <button onClick={() => handleNavClick('news-events')} className="hover:text-teal-300 transition-colors cursor-pointer">
+                  News &amp; Events
+                </button>
+              </li>
+              <li>
                 <button onClick={() => handleNavClick('contact')} className="hover:text-teal-300 transition-colors cursor-pointer">
                   Contact & Location
                 </button>

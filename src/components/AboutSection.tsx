@@ -123,6 +123,12 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ doctorProfile, onOpe
           >
             View Doctor Profile
           </button>
+          <button
+            onClick={() => setActiveTab('rotary-15th-article')}
+            className="w-full py-2 bg-teal-50 hover:bg-teal-100 text-teal-800 font-semibold text-xs rounded-xl transition-colors cursor-pointer border border-teal-200"
+          >
+            Community &amp; Rotary Event
+          </button>
         </div>
       </div>
 

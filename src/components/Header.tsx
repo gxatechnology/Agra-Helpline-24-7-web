@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Phone, PhoneCall, Calendar, Stethoscope, Menu, X, Activity, MapPin, Video, Image, ShieldCheck, ChevronDown, HelpCircle, ShieldAlert, FileText, MessageSquare } from 'lucide-react';
+import { Phone, PhoneCall, Calendar, Stethoscope, Menu, X, Activity, MapPin, Video, Image, ShieldCheck, ChevronDown, HelpCircle, ShieldAlert, FileText, MessageSquare, Newspaper } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
 
 interface HeaderProps {
@@ -112,6 +112,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   // Dropdown items for >1350px
   const moreNav1350 = [
+    { id: 'news-events', label: 'News & Events', icon: Newspaper },
     { id: 'contact', label: 'Contact', icon: MapPin },
     { id: 'faq', label: 'FAQs', icon: HelpCircle },
     { id: 'emergency', label: 'Emergency Help', icon: ShieldAlert },
@@ -121,6 +122,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   // Dropdown items for 1100-1349px (Includes Gallery)
   const moreNav1100 = [
+    { id: 'news-events', label: 'News & Events', icon: Newspaper },
     { id: 'gallery', label: 'Gallery', icon: Image },
     { id: 'contact', label: 'Contact', icon: MapPin },
     { id: 'faq', label: 'FAQs', icon: HelpCircle },
@@ -131,6 +133,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   // Dropdown items for 900-1099px (Includes About & Gallery)
   const moreNav900 = [
+    { id: 'news-events', label: 'News & Events', icon: Newspaper },
     { id: 'about', label: 'About Us', icon: ShieldCheck },
     { id: 'gallery', label: 'Gallery', icon: Image },
     { id: 'contact', label: 'Contact', icon: MapPin },
@@ -148,6 +151,7 @@ export const Header: React.FC<HeaderProps> = ({
     { id: 'doctors', label: 'Doctors', icon: Stethoscope },
     { id: 'telemedicine', label: 'Telemedicine', icon: Video },
     { id: 'gallery', label: 'Gallery', icon: Image },
+    { id: 'news-events', label: 'News & Events', icon: Newspaper },
     { id: 'contact', label: 'Contact Us', icon: MapPin },
     { id: 'faq', label: 'FAQs', icon: HelpCircle },
     { id: 'emergency', label: 'Emergency 24×7', icon: ShieldAlert },
@@ -248,7 +252,7 @@ export const Header: React.FC<HeaderProps> = ({
                   aria-expanded={moreDropdownOpen}
                   aria-haspopup="menu"
                   className={`flex items-center space-x-1 px-3 py-1.5 rounded-lg text-sm font-bold transition-all cursor-pointer whitespace-nowrap ${
-                    ['contact', 'faq', 'emergency', 'privacy', 'terms'].includes(activeTab)
+                    ['contact', 'faq', 'emergency', 'privacy', 'terms', 'news-events', 'rotary-15th-article'].includes(activeTab)
                       ? 'bg-teal-50 text-teal-800 border border-teal-200/80'
                       : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
                   }`}
@@ -330,7 +334,7 @@ export const Header: React.FC<HeaderProps> = ({
                   aria-expanded={moreDropdownOpen}
                   aria-haspopup="menu"
                   className={`flex items-center space-x-1 px-2.5 py-1.5 rounded-lg text-xs xl:text-sm font-bold transition-all cursor-pointer whitespace-nowrap ${
-                    ['gallery', 'contact', 'faq', 'emergency', 'privacy', 'terms'].includes(activeTab)
+                    ['gallery', 'contact', 'faq', 'emergency', 'privacy', 'terms', 'news-events', 'rotary-15th-article'].includes(activeTab)
                       ? 'bg-teal-50 text-teal-800 border border-teal-200/80'
                       : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
                   }`}
@@ -410,7 +414,7 @@ export const Header: React.FC<HeaderProps> = ({
                   aria-expanded={moreDropdownOpen}
                   aria-haspopup="menu"
                   className={`flex items-center space-x-1 px-2 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
-                    ['about', 'gallery', 'contact', 'faq', 'emergency', 'privacy', 'terms'].includes(activeTab)
+                    ['about', 'gallery', 'contact', 'faq', 'emergency', 'privacy', 'terms', 'news-events', 'rotary-15th-article'].includes(activeTab)
                       ? 'bg-teal-50 text-teal-800 border border-teal-200/80'
                       : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
                   }`}

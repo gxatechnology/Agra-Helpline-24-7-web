@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://agra-helpline-24-7-web.vercel.app/sitemap.xml

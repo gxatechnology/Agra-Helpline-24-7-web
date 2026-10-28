@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import { DoctorProfile } from '../types';
-import { Stethoscope, Award, Clock, MapPin, Phone, Mail, Edit3, Save, X, Calendar, CheckCircle, ShieldCheck } from 'lucide-react';
+import { Stethoscope, Award, Clock, MapPin, Phone, Mail, Edit3, Save, X, Calendar, CheckCircle, ShieldCheck, Users, ArrowRight } from 'lucide-react';
 
 interface DoctorProfileSectionProps {
   doctorProfile: DoctorProfile;
   onUpdateDoctorProfile: (updatedProfile: DoctorProfile) => void;
   onOpenAppointmentModal: () => void;
+  setActiveTab?: (tab: string) => void;
 }
 
 export const DoctorProfileSection: React.FC<DoctorProfileSectionProps> = ({
   doctorProfile,
   onUpdateDoctorProfile,
   onOpenAppointmentModal,
+  setActiveTab,
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState<DoctorProfile>(doctorProfile);
@@ -198,6 +200,57 @@ export const DoctorProfileSection: React.FC<DoctorProfileSectionProps> = ({
                   <span className="text-[10px] font-bold text-teal-700 uppercase block">Triage & Clinical Team</span>
                   <span className="text-xs font-semibold text-slate-800">24×7 On-Duty Physicians & Staff</span>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Community Involvement & Social Responsibility (Task 5) */}
+          <div className="bg-slate-50 rounded-2xl border border-slate-200 p-6 shadow-xs space-y-4">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <h3 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
+                <Users className="w-5 h-5 text-teal-600" />
+                <span>Community Involvement &amp; Social Responsibility</span>
+              </h3>
+              <span className="text-[11px] font-bold text-teal-700 bg-teal-100/70 px-2.5 py-0.5 rounded-full border border-teal-200">
+                Civic Engagement
+              </span>
+            </div>
+
+            <p className="text-slate-600 text-sm leading-relaxed">
+              Dr. Mohit Gupta participated in the 15th Installation Ceremony of Rotary Club of Agra Greater in Agra, where he delivered the vote of thanks, as reported by W2L News. His participation reflects his engagement with local community activities beyond his clinical responsibilities.
+            </p>
+
+            {/* Event Photo & Link */}
+            <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center bg-white p-3.5 rounded-xl border border-slate-200">
+              <div className="sm:col-span-4 rounded-lg overflow-hidden aspect-video bg-slate-100">
+                <img
+                  src="/assets/events/rotary-15th/22_rotary_member_address.webp"
+                  alt="Dr. Mohit Gupta and members during Rotary Club of Agra Greater ceremony proceedings in Agra"
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="sm:col-span-8 space-y-2 text-left">
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+                  Rotary Club of Agra Greater 15th Installation
+                </span>
+                <p className="text-xs text-slate-700 font-medium">
+                  Ceremony proceedings, member recognition, and vote of thanks delivered in Agra.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (setActiveTab) {
+                      setActiveTab('rotary-15th-article');
+                    } else {
+                      window.location.href = '/news-events/rotary-club-agra-greater-15th-installation-2026';
+                    }
+                  }}
+                  className="inline-flex items-center space-x-1.5 text-xs font-bold text-teal-700 hover:text-teal-900 transition-colors cursor-pointer"
+                >
+                  <span>View Community Event Highlights</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
               </div>
             </div>
           </div>
