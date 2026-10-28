@@ -1,0 +1,25 @@
+{
+  "rewrites": [
+    {"source": "/home", "destination": "/index.html"},
+    {"source": "/about", "destination": "/index.html"},
+    {"source": "/services", "destination": "/index.html"},
+    {"source": "/doctors", "destination": "/index.html"},
+    {"source": "/doctors/:slug", "destination": "/index.html"},
+    {"source": "/telemedicine", "destination": "/index.html"},
+    {"source": "/gallery", "destination": "/index.html"},
+    {"source": "/contact", "destination": "/index.html"},
+    {"source": "/faqs", "destination": "/index.html"},
+    {"source": "/faq", "destination": "/index.html"},
+    {"source": "/emergency", "destination": "/index.html"},
+    {"source": "/privacy-policy", "destination": "/index.html"},
+    {"source": "/privacy", "destination": "/index.html"},
+    {"source": "/terms-and-conditions", "destination": "/index.html"},
+    {"source": "/terms", "destination": "/index.html"},
+    {"source": "/ai-triage", "destination": "/index.html"},
+    {"source": "/patient-portal", "destination": "/index.html"},
+    {"source": "/news", "destination": "/index.html"},
+    {"source": "/news-events", "destination": "/index.html"},
+    {"source": "/news-events/:slug", "destination": "/index.html"},
+    {"source": "/news/:slug", "destination": "/index.html"}
+  ]
+}
